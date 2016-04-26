@@ -77,8 +77,9 @@ if [ ! -f "$CONCOURSE_WEB/authorized_worker_keys" ]; then
 fi
 
 exec su concourse-web -s /usr/local/bin/concourse -- web \
-    --basic-auth-username "${CONCOURSE_LOGIN:-concourse}" \
-    --basic-auth-password "${CONCOURSE_PASSWORD:-ci}" \
+    --github-auth-organization="$ORG" \
+    --github-auth-client-id="$CLIENT_ID" \
+    --github-auth-client-secret="$CLIENT_SECRET" \
     --session-signing-key "$CONCOURSE_WEB/session_signing_key" \
     --tsa-host-key "$CONCOURSE_WEB/tsa_key" \
     --tsa-authorized-keys "$CONCOURSE_WEB/authorized_worker_keys" \

@@ -1,8 +1,11 @@
 concourse-web:
-  image: meteogroup/concourse-ci
+  image: innitdocker/concourse-ci
   entrypoint: /concourse-web.sh
   environment:
     CONCOURSE_URL:
+    CLIENT_ID:
+    CLIENT_SECRET:
+    ORG:
   volumes:
   - /var/lib/concourse/keys
   ports:
@@ -10,7 +13,7 @@ concourse-web:
   - 2222:2222
 
 concourse-worker:
-  image: meteogroup/concourse-ci
+  image: innitdocker/concourse-ci
   entrypoint: /concourse-worker.sh
   privileged: true
   environment:
