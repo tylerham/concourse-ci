@@ -9,7 +9,7 @@ concourse-web:
   volumes:
   - /var/lib/concourse/keys
   ports:
-  - 8080:8080
+  - 80:8080
   - 2222:2222
 
 concourse-worker:
